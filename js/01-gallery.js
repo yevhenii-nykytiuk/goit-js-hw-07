@@ -2,7 +2,9 @@ import { galleryItems } from './gallery-items.js';
 
 const galleryList = document.querySelector(".gallery");
 
-galleryList.insertAdjacentHTML("afterbegin", createGallery(galleryItems));
+const createGalleryLightBox = createGallery(galleryItems)
+
+galleryList.insertAdjacentHTML("afterbegin", createGalleryLightBox);
 
 function createGallery (gallery) {
   return gallery.map(({ preview, original, description }) => {
