@@ -1,8 +1,12 @@
 import { galleryItems } from './gallery-items.js';
 
+
+
 const galleryList = document.querySelector(".gallery");
 
 const createGalleryLightBox = createGallery(galleryItems)
+
+
 
 galleryList.insertAdjacentHTML("afterbegin", createGalleryLightBox);
 
@@ -35,17 +39,35 @@ function handlerGalleryOnClick(event) {
   const instance = basicLightbox.create(`
     <div class="modal">
         <img src="${event.target.dataset.source}" width="800" height="500">
-    </div>
-`)
+    </div>`,
+
+    {
+      onShow: () => {
+        window.addEventListener("keydown", onEscapeKeyPress);
+      },
+    
+      onClose: () => {
+        window.removeEventListener("keydown", onEscapeKeyPress);
+      },
+    },
+  );
 
   instance.show();
+    
 
-  galleryList.addEventListener("keydown", (event) => {
+  function onEscapeKeyPress(event) {
     if (event.code === "Escape") {
       instance.close();
     }
-  })
+  }
 }
+
+
+
+
+
+
+
 
 
 
