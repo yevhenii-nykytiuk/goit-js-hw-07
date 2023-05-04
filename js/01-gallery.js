@@ -7,7 +7,6 @@ const galleryList = document.querySelector(".gallery");
 const createGalleryLightBox = createGallery(galleryItems)
 
 
-
 galleryList.insertAdjacentHTML("afterbegin", createGalleryLightBox);
 
 function createGallery (gallery) {
@@ -38,7 +37,7 @@ function handlerGalleryOnClick(event) {
 
   const instance = basicLightbox.create(`
     <div class="modal">
-        <img src="${event.target.dataset.source}" width="800" height="500">
+        <img src="${event.target.dataset.source}" width="800" height="600">
     </div>`,
 
     {
