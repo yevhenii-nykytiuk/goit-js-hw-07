@@ -40,6 +40,8 @@ function handlerGalleryOnClick(event) {
         <img src="${event.target.dataset.source}" width="800" height="600">
     </div>`,
 
+
+
     {
       onShow: () => {
         window.addEventListener("keydown", onEscapeKeyPress);
@@ -52,7 +54,13 @@ function handlerGalleryOnClick(event) {
   );
 
   instance.show();
-    
+
+  const modalEl = document.querySelector(".modal");
+
+  modalEl.addEventListener("click", () => {
+    instance.close();
+  })
+  
 
   function onEscapeKeyPress(event) {
     if (event.code === "Escape") {
@@ -60,6 +68,10 @@ function handlerGalleryOnClick(event) {
     }
   }
 }
+
+
+
+
 
 
 
